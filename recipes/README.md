@@ -32,6 +32,9 @@ recipes/
 - [`inclusionAI/Ming-flash-omni-2.0.md`](./inclusionAI/Ming-flash-omni-2.0.md):
   online serving recipe for multimodal chat (`4x H100 80GB`) and standalone TTS (`1x H100 80GB`)
 
+- [`GLM/GLM-Image.md`](./GLM/GLM-Image.md):online serving recipe for
+  image generation on `1x A800 80GB` and `2x A800 80GB`
+
 Within a single recipe file, include different hardware support sections such
 as `GPU`, `ROCm`, and `NPU`, and add concrete tested configurations like
 `1x A100 80GB` or `2x L40S` inside those sections when applicable.
