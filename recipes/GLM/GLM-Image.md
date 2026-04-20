@@ -2,8 +2,8 @@
 
 ## Summary
 
-- Vendor: Z.ai 
-- Model: `zai-org/GLM-Image`
+- Vendor: Z.ai
+- Model: `GLM/GLM-Image`
 - Task: Text-to-image (T2I) and image-to-image / editing (I2I)
 - Mode: Online serving with the OpenAI-compatible API
 - Maintainer: Community
@@ -11,7 +11,7 @@
 ## When to use this recipe
 
 Use this recipe when you want a known-good starting point for serving
-`zai-org/GLM-Image` with vLLM-Omni on **two 80 GB NVIDIA A800** GPUs (Ampere-class,
+`GLM/GLM-Image` with vLLM-Omni on **two 80 GB NVIDIA A800** GPUs (Ampere-class,
 same default layout as the upstream **2×A100 80GB** example: Stage 0 AR on GPU 0,
 Stage 1 diffusion on GPU 1) and validate the deployment with the existing
 `examples/online_serving/glm_image` clients. For **one** A800 80 GB GPU, follow
@@ -83,7 +83,7 @@ ls glm_image_output.png
 #### Notes
 
 - Memory usage: Roughly **~18 GiB + KV** on Stage 0 (AR) and **~20 GiB** on Stage 1 (DiT+VAE) per the user guide; two 80 GB cards match the default split.
-- Key flags: `--omni` is required; `--stage-configs-path` is optional unless you use a custom YAML (for example single-GPU). 
+- Key flags: `--omni` is required; `--stage-configs-path` is optional unless you use a custom YAML (for example single-GPU).
 - Keep **Transformers ≥ 5.5.1** (this recipe used **5.5.4**) so `glm_image` configs resolve; otherwise Stage 0 can fail at `ModelConfig` validation.
 - Known limitations: This starter recipe follows the dual-GPU online path documented under `examples/online_serving/glm_image`. The first request may be slower due to warmup.
 - Generation time: ~62s end-to-end on 2× A800 80GB (50 inference steps, 1024×1024, chat completions client).
@@ -148,7 +148,5 @@ the server startup line changes because of `--stage-configs-path`.
 - Keep Transformers **≥ 5.5.1** (here
   **5.5.4**) for `glm_image` support.
 - Known limitations: Stages no longer run on separate devices in parallel;
-  throughput differs from the 2× recipe. 
+  throughput differs from the 2× recipe.
 - Generation time: ~62s end-to-end on 2× A800 80GB (50 inference steps, 1024×1024, chat completions client).
-
-
