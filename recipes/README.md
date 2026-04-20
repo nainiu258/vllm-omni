@@ -30,6 +30,9 @@ recipes/
 - [`Wan-AI/Wan2.2-I2V.md`](./Wan-AI/Wan2.2-I2V.md): image-to-video serving
   recipe for Wan2.2 14B on `8x Ascend NPU (A2/A3)`
 
+- [`GLM/GLM-Image.md`](./GLM/GLM-Image.md):online serving recipe for
+  image generation on `1x A800 80GB` and `2x A800 80GB`
+
 Within a single recipe file, include different hardware support sections such
 as `GPU`, `ROCm`, and `NPU`, and add concrete tested configurations like
 `1x A100 80GB` or `2x L40S` inside those sections when applicable.
