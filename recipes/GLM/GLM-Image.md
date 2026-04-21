@@ -61,7 +61,7 @@ To use the bundled stage config explicitly (same default as above):
 vllm serve zai-org/GLM-Image \
   --omni \
   --port 8091 \
-  --stage-configs-path vllm_omni/model_executor/stage_configs/glm_image.yaml
+  --stage-configs-path vllm_omni/deploy/glm_image.yaml
 ```
 
 #### Verification
@@ -120,8 +120,8 @@ A800 80 GB GPU visible (often `CUDA_VISIBLE_DEVICES=0`).
 1. Copy the stock stage file and point **Stage 1** at the same GPU as Stage 0:
 
 ```bash
-cp vllm_omni/model_executor/stage_configs/glm_image.yaml \
-  vllm_omni/model_executor/stage_configs/glm_image_single_gpu.yaml
+cp vllm_omni/deploy/glm_image.yaml \
+  vllm_omni/deploy/glm_image_single_gpu.yaml
 ```
 
 In `glm_image_single_gpu.yaml`, Stage 0 already has `runtime.devices: "0"`.
