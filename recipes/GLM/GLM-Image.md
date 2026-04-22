@@ -61,7 +61,7 @@ To use the bundled stage config explicitly (same default as above):
 vllm serve zai-org/GLM-Image \
   --omni \
   --port 8091 \
-  --stage-configs-path vllm_omni/deploy/glm_image.yaml
+  --deploy-config vllm_omni/deploy/glm_image.yaml
 ```
 
 #### Verification
@@ -142,7 +142,7 @@ Under **Stage 1** (`stage_id: 1`), change only the device line from `"1"` to `"0
 vllm serve zai-org/GLM-Image \
   --omni \
   --port 8091 \
-  --stage-configs-path vllm_omni/deploy/glm_image_single_gpu.yaml
+  --deploy-config vllm_omni/deploy/glm_image_single_gpu.yaml
 ```
 
 If you hit **OOM**, lower Stage 0 `engine_args.gpu_memory_utilization` in the same
